@@ -4,14 +4,20 @@ import { askChat } from "../Api";
 function Chat() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
+  const [loading, setLoading] = useState(false); // ✅ Loading state
 
   const handleChat = async () => {
+    if (!prompt) return;
+    setLoading(true);    // Start spinner
+    setResponse("");     // Clear previous response
     try {
       const res = await askChat(prompt);
       const message = res.data.data.choices[0].message.content;
       setResponse(message);
     } catch (err) {
       setResponse("Error: " + err.message);
+    } finally {
+      setLoading(false); // Stop spinner
     }
   };
 
@@ -33,6 +39,15 @@ function Chat() {
           <button onClick={handleChat}>Send</button>
           <button className="clear-btn" onClick={handleClear}>Clear</button>
         </div>
+
+        {/* Spinner */}
+        {loading && (
+          <div className="spinner-container">
+            <div className="spinner"></div>
+            Please wait...
+          </div>
+        )}
+
         <div className="response">{response}</div>
       </div>
     </>
