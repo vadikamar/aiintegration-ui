@@ -4,13 +4,19 @@ import { ragQuery } from "../Api";
 function RagQuery() {
   const [text, setText] = useState("");
   const [ans, setAns] = useState("");
+  const [loading, setLoading] = useState(false); // ✅ Loading state
 
   const handleQuery = async () => {
+    if (!text) return;
+    setLoading(true);   // start spinner
+    setAns("");         // clear previous answer
     try {
       const res = await ragQuery(text);
       setAns(res.data.data);
     } catch (err) {
       setAns("Error: " + err.message);
+    } finally {
+      setLoading(false); // stop spinner
     }
   };
 
@@ -29,9 +35,18 @@ function RagQuery() {
           onChange={(e) => setText(e.target.value)}
         />
         <div>
-          <button onClick={handleQuery}>Run</button>
-          <button className="clear-btn" onClick={handleClear}>Clear</button>
+          <button onClick={handleQuery} disabled={loading}>Run</button>
+          <button className="clear-btn" onClick={handleClear} disabled={loading}>Clear</button>
         </div>
+
+        {/* Spinner */}
+        {loading && (
+          <div className="spinner-container">
+            <div className="spinner"></div>
+            Please wait...
+          </div>
+        )}
+
         <div className="response">{ans}</div>
       </div>
     </>
