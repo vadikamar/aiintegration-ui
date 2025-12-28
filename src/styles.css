@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Inter:wght@400&display=swap');
+
+h1, h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.nav-buttons button {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s ease-in-out;
+}
+
+.nav-buttons button.active {
+  background: #0056b3;
+  transform: scale(1.03);
+}
+
+.nav-buttons button:hover {
+  background: #0069d9;
+}
+
+.box {
+  margin: 15px 0;
+  padding: 18px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fff;
+}
+
+input {
+  padding: 10px;
+  margin: 8px 5px;
+  width: 70%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 16px;
+  margin-top: 5px;
+  margin-right: 8px; /* ← Adds spacing before Clear button */
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #28a745;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #218838;
+}
+
+.response {
+  margin-top: 12px;
+  text-align: left;
+  background: #f1f3f6;
+  color: #333;
+  padding: 12px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+}
+
+.clear-btn {
+  background: #dc3545 !important;
+  margin-left: 10px; /* Extra spacing for safety */
+}
+.clear-btn:hover {
+  background: #b52d3a !important;
+}
+
+/* 🌟 MOBILE + TABLET RESPONSIVE FIXES */
+@media (max-width: 768px) {
+  input {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 18px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
