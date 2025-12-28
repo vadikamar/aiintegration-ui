@@ -146,3 +146,18 @@ button:hover {
     padding: 10px;
   }
 }
+.footer {
+  margin-top: 30px;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  border-top: 1px solid #e0e0e0;
+}
+
+
+
+.footer:hover {
+  color: #007bff;
+  cursor: default;
+}

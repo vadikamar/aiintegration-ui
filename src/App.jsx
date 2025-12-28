@@ -42,6 +42,9 @@ function App() {
       {activeTab === "memory" && <MemoryForm />}
       {activeTab === "rag" && <RagQuery />}
       <ToastContainer position="top-center" autoClose={2000} />
+      <div className="footer">
+        Made with ❤️ by Vadik Amar
+      </div>
     </div>
   );
 }
